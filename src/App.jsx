@@ -1,5 +1,5 @@
 import { Container, Grid } from "@mui/material";
-import { FeaturePost, MainBlog, MainPost, Navbar, SideBar } from "./components";
+import { FeaturePost, Footer, MainBlog, MainPost, Navbar, SideBar } from "./components";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <MainBlog />
         <SideBar />
       </Grid>
+      <Footer />
     </Container>
   );
 }

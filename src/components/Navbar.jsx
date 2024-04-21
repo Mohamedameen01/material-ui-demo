@@ -20,16 +20,16 @@ function Navbar() {
   return (
     <>
       <Toolbar>
-        <Button size="small">Subscribe</Button>
-        <Typography variant="h5" align="center" sx={{ flex: 1 }}>
+        <Button size="small" sx={{display:{xs:'none', md:'block'}}}>Subscribe</Button>
+        <Typography variant="h5" sx={{ flex: 1, textAlign:{md:'center'} }}>
           Blog
         </Typography>
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined">Sign up</Button>
+        <Button sx={{textWrap:'wrap'}}  variant="outlined">Sign up</Button>
       </Toolbar>
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+      <Toolbar sx={{ my:1,display:"flex",gap:1, justifyContent: "space-between",overflowX:{xs:'scroll',md:'hidden'} }}>
         {navlists.map((nav) => (
           <Link
             underline="none"
