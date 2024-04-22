@@ -4,4 +4,6 @@ import MainPost from "./MainPost";
 import MainBlog from "./MainBlog";
 import SideBar from "./SideBar";
 import Footer from "./Footer";
-export { Navbar, FeaturePost, MainPost, MainBlog, SideBar,Footer };
+import Signup from "./Signup";
+
+export { Navbar, FeaturePost, MainPost, MainBlog, SideBar, Footer, Signup };

@@ -1,18 +1,16 @@
-import { Container, Grid } from "@mui/material";
-import { FeaturePost, Footer, MainBlog, MainPost, Navbar, SideBar } from "./components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Home } from "./pages";
+import { Signup } from "./components";
 
 function App() {
   return (
-    <Container>
-      <Navbar />
-      <FeaturePost />
-      <MainPost />
-      <Grid container spacing={5} sx={{ mt: 3 }}>
-        <MainBlog />
-        <SideBar />
-      </Grid>
-      <Footer />
-    </Container>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/signup"  element={<Signup />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
