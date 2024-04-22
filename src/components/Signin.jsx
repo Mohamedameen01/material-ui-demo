@@ -20,21 +20,18 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function Signin() {
   const [showPassword, setShowPassword] = useState(false);
+  const date = new Date();
   const navigate = useNavigate();
 
-  const date = new Date();
-
-  const handlePasswordVisibilty = () => setShowPassword(!showPassword);
-
+  const handleShowPassword = () => setShowPassword(!showPassword);
   return (
     <Container maxWidth="xs">
-      <CssBaseline />
+        <CssBaseline />
       <Box
-        component="main"
         sx={{
-          mt: 6,
+          mt: 5,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -45,54 +42,34 @@ function Signup() {
           <LockIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Signup
+          Sign in
         </Typography>
-        <Box component="form" noValidate>
+        <Box component="form">
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12}>
               <TextField
-                name="firstName"
                 required
                 fullWidth
                 autoFocus
-                label="First Name"
-                id="firstName"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <TextField
-                name="lastName"
-                required
-                fullWidth
-                label="Last Name"
-                id="lastName"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                name="email"
-                required
-                fullWidth
                 label="Email Address"
                 id="email"
+                name="email"
                 variant="outlined"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                name="password"
-                type={showPassword ? "text" : "password"}
                 required
                 fullWidth
                 label="Password"
+                type={showPassword ? "text" : "password"}
                 id="password"
+                name="password"
                 variant="outlined"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      <IconButton onClick={handlePasswordVisibilty}>
+                      <IconButton onClick={handleShowPassword}>
                         {showPassword ? (
                           <VisibilityOffIcon />
                         ) : (
@@ -106,34 +83,26 @@ function Signup() {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                sx={{ mx: 2 }}
+                sx={{ mx: 1 }}
                 required
-                label="I want to receive inspiration, marketing promotions and updates via email."
-                control={<Checkbox value='promotion' sx={{ mx: 2 }} color="primary" />}
+                label="Remember me"
+                control={<Checkbox value='remember'  sx={{ mx: 2 }} color="primary" />}
               />
             </Grid>
             <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                sx={{ my: 1 }}
-              >
-                Signup
+              <Button variant="contained" fullWidth type="submit">
+                Sign in
               </Button>
             </Grid>
-            <Grid container justifyContent="flex-end">
-              <Grid item sx={{ m: 1 }}>
-                <Link
-                  underline="none"
-                  variant="body2"
-                  sx={{ cursor: "pointer" }}
-                  onClick={() => navigate("/signin")}
-                >
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
+            <Grid item xs={5}>
+              <Link variant="body2" sx={{ cursor: "pointer" }} underline="none">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item xs={7}>
+              <Link onClick={() => navigate('/signup')} variant="body2" sx={{ cursor: "pointer" }} underline="none">
+                Don't have an account? Sign Up
+              </Link>
             </Grid>
           </Grid>
         </Box>
@@ -156,4 +125,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Signin;
